@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>V.S. Travel Company</title>
+</head>
+<body>
+<import type React from "react"
+import type { Metadata } from "next"
+import { Noto_Sans as Noto } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
+
+const notoSansDevanagari = Noto({
+  subsets: ["devanagari"],
+  weight: ["400", "500", "600", "700"],
+})
+
+export const metadata: Metadata = {
+  title: "V.S. Travel Company - पर्सनल ड्राइवर भर्ती दिल्ली",
+  description:
+    "सरकारी अधिकारियों के परिवार के लिए निजी ड्राइवर भर्ती - दिल्ली। 12 वर्ष का अनुभव। ₹30,000 प्रति माह वेतन। लॉन्ग टर्म कॉन्ट्रैक्ट।",
+  keywords: "ड्राइवर भर्ती, निजी ड्राइवर, दिल्ली नौकरी, सरकारी ड्राइवर, driver job delhi",
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="hi">
+      <body className={`${notoSansDevanagari.className} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  )
+}
+import { Header } from "@/components/header"
+import { HeroSection } from "@/components/hero-section"
+import { AboutSection } from "@/components/about-section"
+import { JobDetailsSection } from "@/components/job-details-section"
+import { EligibilitySection } from "@/components/eligibility-section"
+import { SalarySection } from "@/components/salary-section"
+import { RegistrationSection } from "@/components/registration-section"
+import { CitiesSection } from "@/components/cities-section"
+import { ContactSection } from "@/components/contact-section"
+import { Footer } from "@/components/footer"
+import { WhatsAppButton } from "@/components/whatsapp-button"
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-white">
+      <Header />
+      <HeroSection />
+      <AboutSection />
+      <JobDetailsSection />
+      <EligibilitySection />
+      <SalarySection />
+      <RegistrationSection />
+      <CitiesSection />
+      <ContactSection />
+      <Footer />
+      <WhatsAppButton />
+    </main>
+  )
+}
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.113 0.041 246.2);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --font-sans: "Noto Sans Devanagari", system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+"use client"
+
+import { Phone, MapPin } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export function Header() {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const handleApplyNow = () => {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSczGeC8kIpK_8ZWekT7jsJVJspu0xiBgK8Y_OAXcVVh9Y17ng/viewform?usp=publish-editor",
+      "_blank",
+    )
+  }
+
+  return (
+    <header className="sticky top-0 z-50 bg-[#0B1C2D] text-white shadow-md">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-center md:text-left">
+            <h1 className="text-2xl md:text-3xl font-bold">V.S. Travel Company</h1>
+            <p className="text-sm md:text-base text-gray-300 mt-1">12 वर्षों का विश्वसनीय अनुभव</p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <a
+              href="tel:9217804810"
+              className="flex items-center gap-2 text-sm md:text-base hover:text-gray-300 transition-colors"
+            >
+              <Phone className="h-5 w-5" />
+              <span className="font-semibold">9217804810</span>
+            </a>
+            <div className="flex items-center gap-2 text-sm md:text-base text-gray-300">
+              <MapPin className="h-5 w-5" />
+              <span>कनॉट प्लेस, दिल्ली</span>
+            </div>
+            <Button onClick={handleApplyNow} className="bg-white text-[#0B1C2D] hover:bg-gray-100 font-semibold px-6">
+              अभी आवेदन करें
+            </Button>
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+}
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { CheckCircle2 } from "lucide-react"
+
+export function HeroSection() {
+  const handleApplyNow = () => {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSczGeC8kIpK_8ZWekT7jsJVJspu0xiBgK8Y_OAXcVVh9Y17ng/viewform?usp=publish-editor",
+      "_blank",
+    )
+  }
+
+  return (
+    <section className="relative bg-gradient-to-br from-[#0B1C2D] via-[#1a3a52] to-[#0B1C2D] text-white py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-balance">
+              सरकारी अधिकारियों के परिवार के लिए निजी ड्राइवर भर्ती – दिल्ली
+            </h2>
+            <p className="text-lg md:text-xl text-gray-200 text-pretty">
+              5 वर्ष का लॉन्ग टर्म कॉन्ट्रैक्ट। सुरक्षित, स्थायी और सम्मानजनक नौकरी।
+            </p>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="h-6 w-6 text-green-400 flex-shrink-0" />
+                <span className="text-base md:text-lg">₹30,000 प्रति माह (कैश इन हैंड)</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="h-6 w-6 text-green-400 flex-shrink-0" />
+                <span className="text-base md:text-lg">12 वर्षों का विश्वसनीय अनुभव</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="h-6 w-6 text-green-400 flex-shrink-0" />
+                <span className="text-base md:text-lg">सरकारी परिवारों में कार्य</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="h-6 w-6 text-green-400 flex-shrink-0" />
+                <span className="text-base md:text-lg">पूर्ण दस्तावेज़ सत्यापन</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button
+                onClick={handleApplyNow}
+                size="lg"
+                className="bg-white text-[#0B1C2D] hover:bg-gray-100 font-bold text-lg px-8"
+              >
+                अभी आवेदन करें
+              </Button>
+              <Button
+                onClick={() => window.open("https://wa.me/919217804810", "_blank")}
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#0B1C2D] font-bold text-lg px-8"
+              >
+                व्हाट्सएप करें
+              </Button>
+            </div>
+          </div>
+
+          <div className="relative">
+            <img
+              src="https://placehold.co/600x400?text=An+Indian+professional+driver+wearing+clean+formal+uniform+confidently+driving+luxury+sedan+in+Delhi+with+well+dressed+Indian+family+sitting+comfortably+in+back+seat+smiling+and+relaxed+daytime+premium+chauffeur+service+safe+trustworthy+realistic+photography"
+              alt="An Indian professional driver wearing clean formal uniform confidently driving luxury sedan in Delhi with well dressed Indian family sitting comfortably in back seat smiling and relaxed daytime premium chauffeur service safe trustworthy realistic photography"
+              className="rounded-lg shadow-2xl w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+import { Building2, Users, Shield, Award } from "lucide-react"
+
+export function AboutSection() {
+  return (
+    <section id="about" className="py-16 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">हमारे बारे में</h2>
+          <div className="w-20 h-1 bg-[#0B1C2D] mx-auto"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-8 md:p-10 mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6 text-pretty">
+              <span className="font-bold text-[#0B1C2D]">V.S. Travel Company</span> पिछले 12 वर्षों से ट्रैवल एवं ड्राइवर सेवा
+              क्षेत्र में कार्यरत है। हम दिल्ली, मुंबई, पटना, चंडीगढ़ और लखनऊ में सरकारी अधिकारियों के परिवारों के लिए अनुभवी और विश्वसनीय
+              निजी ड्राइवर उपलब्ध कराते हैं।
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed text-pretty">
+              हमारा ऑफिस कनॉट प्लेस, नई दिल्ली में स्थित है। हम सुरक्षित, भरोसेमंद और अनुभवी ड्राइवर सेवा प्रदान करने के लिए प्रतिबद्ध हैं।
+              हमारी चयन प्रक्रिया पूरी तरह कानूनी और पारदर्शी है।
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <Award className="h-8 w-8 text-[#0B1C2D]" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">12 वर्ष</h3>
+              <p className="text-gray-600">अनुभव</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                <Users className="h-8 w-8 text-green-700" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">सरकारी</h3>
+              <p className="text-gray-600">परिवार</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+                <Shield className="h-8 w-8 text-purple-700" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">100%</h3>
+              <p className="text-gray-600">सुरक्षित</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
+                <Building2 className="h-8 w-8 text-orange-700" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-900 mb-2">5 शहर</h3>
+              <p className="text-gray-600">में सेवा</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+import { Briefcase, MapPin, Clock, FileText, Calendar } from "lucide-react"
+
+export function JobDetailsSection() {
+  return (
+    <section id="job-details" className="py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">नौकरी का विवरण</h2>
+          <div className="w-20 h-1 bg-[#0B1C2D] mx-auto"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-[#0B1C2D] rounded-lg p-3">
+                  <Briefcase className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">पद</h3>
+                  <p className="text-gray-700">पर्सनल ड्राइवर (LMV)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-[#0B1C2D] rounded-lg p-3">
+                  <MapPin className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">स्थान</h3>
+                  <p className="text-gray-700">दिल्ली</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-[#0B1C2D] rounded-lg p-3">
+                  <Clock className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">कार्य प्रकार</h3>
+                  <p className="text-gray-700">फुल टाइम</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-[#0B1C2D] rounded-lg p-3">
+                  <Calendar className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">कॉन्ट्रैक्ट अवधि</h3>
+                  <p className="text-gray-700">5 वर्ष (लॉन्ग टर्म)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 bg-green-50 border-2 border-green-500 rounded-lg p-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-green-500 rounded-lg p-3">
+                <FileText className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl text-gray-900 mb-2">नौकरी की विशेषता</h3>
+                <p className="text-gray-700 text-lg">
+                  यह नौकरी पूरी तरह से <span className="font-bold text-green-700">सुरक्षित और स्थायी</span> है। आप सरकारी
+                  अधिकारियों के परिवार में कार्य करेंगे।
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+import { GraduationCap, CreditCard, Clock, CheckCircle2 } from "lucide-react"
+
+export function EligibilitySection() {
+  return (
+    <section id="eligibility" className="py-16 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">योग्यता</h2>
+          <div className="w-20 h-1 bg-[#0B1C2D] mx-auto"></div>
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+            निम्नलिखित योग्यता मापदंड पूरा करने वाले उम्मीदवार आवेदन कर सकते हैं
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-blue-100 rounded-full p-3">
+                  <GraduationCap className="h-7 w-7 text-[#0B1C2D]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">शैक्षणिक योग्यता</h3>
+                  <p className="text-gray-700">न्यूनतम 10वीं पास</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-green-100 rounded-full p-3">
+                  <CreditCard className="h-7 w-7 text-green-700" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">ड्राइविंग लाइसेंस</h3>
+                  <p className="text-gray-700">LMV (वैध लाइसेंस)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-purple-100 rounded-full p-3">
+                  <Clock className="h-7 w-7 text-purple-700" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">लाइसेंस अवधि</h3>
+                  <p className="text-gray-700">कम से कम 3 वर्ष पुराना</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-[#0B1C2D]">
+              <div className="flex items-start gap-4">
+                <div className="bg-orange-100 rounded-full p-3">
+                  <CheckCircle2 className="h-7 w-7 text-orange-700" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">अनुभव</h3>
+                  <p className="text-gray-700">ड्राइविंग अनुभव अनिवार्य</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 bg-[#0B1C2D] text-white rounded-lg p-8">
+            <h3 className="font-bold text-2xl mb-4 text-center">महत्वपूर्ण सूचना</h3>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 text-green-400 flex-shrink-0 mt-1" />
+                <p className="text-lg">आपका ड्राइविंग लाइसेंस LMV श्रेणी का होना चाहिए</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 text-green-400 flex-shrink-0 mt-1" />
+                <p className="text-lg">लाइसेंस कम से कम 3 वर्ष पुराना होना अनिवार्य है</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-6 w-6 text-green-400 flex-shrink-0 mt-1" />
+                <p className="text-lg">ड्राइविंग का व्यावहारिक अनुभव आवश्यक है</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+"use client"
+
+import { IndianRupee, Gift, TrendingUp, Shield } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export function SalarySection() {
+  const handleApplyNow = () => {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSczGeC8kIpK_8ZWekT7jsJVJspu0xiBgK8Y_OAXcVVh9Y17ng/viewform?usp=publish-editor",
+      "_blank",
+    )
+  }
+
+  return (
+    <section id="salary" className="py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">वेतन और लाभ</h2>
+          <div className="w-20 h-1 bg-[#0B1C2D] mx-auto"></div>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12 mb-8 border-2 border-green-200">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-green-500 rounded-full p-3">
+                    <IndianRupee className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-gray-600 text-sm">मासिक वेतन</p>
+                    <h3 className="text-4xl md:text-5xl font-bold text-green-700">₹30,000</h3>
+                  </div>
+                </div>
+                <p className="text-lg text-gray-700 font-semibold mb-4">कैश इन हैंड (सीधे आपके हाथ में)</p>
+                <p className="text-gray-600 text-pretty">
+                  यह वेतन पूरी तरह सुनिश्चित है। कोई कटौती नहीं। समय पर भुगतान की गारंटी।
+                </p>
+              </div>
+
+              <div className="relative">
+                <img
+                  src="https://placehold.co/400x300?text=Indian+driver+smiling+confidently+holding+salary+envelope+in+hand+professional+look+symbol+of+stable+income+job+security+realistic+photography+respectful+trustworthy+style"
+                  alt="Indian driver smiling confidently holding salary envelope in hand professional look symbol of stable income job security realistic photography respectful trustworthy style"
+                  className="rounded-lg shadow-lg w-full"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-6">
+            <div className="bg-white rounded-lg shadow-md p-6 text-center border-2 border-gray-100 hover:border-[#0B1C2D] transition-colors">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <Gift className="h-8 w-8 text-blue-700" />
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">5 वर्ष कॉन्ट्रैक्ट</h3>
+              <p className="text-gray-600">लॉन्ग टर्म जॉब सिक्योरिटी</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center border-2 border-gray-100 hover:border-[#0B1C2D] transition-colors">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                <TrendingUp className="h-8 w-8 text-green-700" />
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">स्थायी आय</h3>
+              <p className="text-gray-600">हर महीने निश्चित वेतन</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-md p-6 text-center border-2 border-gray-100 hover:border-[#0B1C2D] transition-colors">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+                <Shield className="h-8 w-8 text-purple-700" />
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-2">सम्मानजनक कार्य</h3>
+              <p className="text-gray-600">सरकारी परिवारों में</p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <Button
+              onClick={handleApplyNow}
+              size="lg"
+              className="bg-[#0B1C2D] hover:bg-[#1a3a52] text-white font-bold text-lg px-10"
+            >
+              अभी आवेदन करें और अपना भविष्य सुरक्षित करें
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+import { FileCheck, Phone, IndianRupee, AlertCircle } from "lucide-react"
+
+export function RegistrationSection() {
+  return (
+    <section id="registration" className="py-16 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">रजिस्ट्रेशन प्रक्रिया</h2>
+          <div className="w-20 h-1 bg-[#0B1C2D] mx-auto"></div>
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">आसान और सुरक्षित रजिस्ट्रेशन प्रक्रिया</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-6 mb-10">
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl font-bold text-[#0B1C2D]">1</span>
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-3">ऑनलाइन आवेदन</h3>
+              <p className="text-gray-600">Google Form भरें और अपनी जानकारी भेजें</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl font-bold text-green-700">2</span>
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-3">कॉल प्राप्त करें</h3>
+              <p className="text-gray-600">हमारी टीम आपको कॉल करेगी</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl font-bold text-purple-700">3</span>
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 mb-3">ड्राइविंग टेस्ट</h3>
+              <p className="text-gray-600">दस्तावेज़ सत्यापन और ड्राइविंग टेस्ट</p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-xl p-8 mb-8">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="bg-green-100 rounded-lg p-3">
+                <IndianRupee className="h-7 w-7 text-green-700" />
+              </div>
+              <div>
+                <h3 className="font-bold text-2xl text-gray-900 mb-2">रजिस्ट्रेशन शुल्क</h3>
+                <p className="text-3xl font-bold text-green-700 mb-3">₹600 मात्र</p>
+                <p className="text-gray-700 text-lg mb-2">रजिस्ट्रेशन एवं ड्राइविंग टेस्ट शुल्क</p>
+              </div>
+            </div>
+
+            <div className="space-y-3 bg-blue-50 rounded-lg p-6">
+              <div className="flex items-start gap-3">
+                <FileCheck className="h-6 w-6 text-blue-700 flex-shrink-0 mt-1" />
+                <p className="text-gray-700 text-lg">यह शुल्क केवल कॉल के बाद लिया जाएगा</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Phone className="h-6 w-6 text-blue-700 flex-shrink-0 mt-1" />
+                <p className="text-gray-700 text-lg">QR code केवल 9217804810 नंबर से ही प्राप्त होगा</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <FileCheck className="h-6 w-6 text-blue-700 flex-shrink-0 mt-1" />
+                <p className="text-gray-700 text-lg">वेबसाइट पर कोई अनिवार्य ऑनलाइन भुगतान नहीं</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-6">
+            <div className="flex items-start gap-4">
+              <AlertCircle className="h-8 w-8 text-yellow-700 flex-shrink-0" />
+              <div>
+                <h3 className="font-bold text-xl text-gray-900 mb-3">महत्वपूर्ण सूचना - धोखाधड़ी से बचें</h3>
+                <ul className="space-y-2 text-gray-700 text-lg">
+                  <li className="flex items-start gap-2">
+                    <span className="text-yellow-700 font-bold">•</span>
+                    <span>कोई छुपा हुआ शुल्क नहीं है</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-yellow-700 font-bold">•</span>
+                    <span>भुगतान केवल कंपनी के नंबर 9217804810 से प्राप्त QR code पर ही करें</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-yellow-700 font-bold">•</span>
+                    <span>वेबसाइट पर कोई पेमेंट लिंक नहीं है</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-yellow-700 font-bold">•</span>
+                    <span>केवल कॉल के बाद ही रजिस्ट्रेशन शुल्क देना है</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+import { MapPin } from "lucide-react"
+
+export function CitiesSection() {
+  const cities = [
+    { name: "दिल्ली", highlight: true },
+    { name: "मुंबई", highlight: false },
+    { name: "पटना", highlight: false },
+    { name: "चंडीगढ़", highlight: false },
+    { name: "लखनऊ", highlight: false },
+  ]
+
+  return (
+    <section id="cities" className="py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">हम किन शहरों में काम करते हैं</h2>
+          <div className="w-20 h-1 bg-[#0B1C2D] mx-auto"></div>
+          <p className="text-gray-600 mt-4 text-lg">भारत के प्रमुख शहरों में हमारी सेवाएं उपलब्ध हैं</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            {cities.map((city) => (
+              <div
+                key={city.name}
+                className={`${
+                  city.highlight
+                    ? "bg-[#0B1C2D] text-white shadow-xl scale-105"
+                    : "bg-gray-50 text-gray-900 border-2 border-gray-200"
+                } rounded-lg p-6 text-center hover:shadow-lg transition-all`}
+              >
+                <MapPin className={`h-8 w-8 mx-auto mb-3 ${city.highlight ? "text-white" : "text-[#0B1C2D]"}`} />
+                <h3 className="font-bold text-lg">{city.name}</h3>
+                {city.highlight && <p className="text-sm text-gray-300 mt-2">वर्तमान भर्ती</p>}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 bg-blue-50 rounded-lg p-6 text-center">
+            <p className="text-lg text-gray-700">
+              <span className="font-bold text-[#0B1C2D]">वर्तमान में दिल्ली</span> के लिए भर्ती चल रही है।
+              <br />
+              अन्य शहरों के लिए जल्द ही भर्ती शुरू होगी।
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+"use client"
+
+import { Phone, MessageCircle, MapPin, Mail } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export function ContactSection() {
+  const handleApplyNow = () => {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSczGeC8kIpK_8ZWekT7jsJVJspu0xiBgK8Y_OAXcVVh9Y17ng/viewform?usp=publish-editor",
+      "_blank",
+    )
+  }
+
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/919217804810", "_blank")
+  }
+
+  const handleCall = () => {
+    window.location.href = "tel:9217804810"
+  }
+
+  return (
+    <section id="contact" className="py-16 md:py-20 bg-gradient-to-br from-[#0B1C2D] to-[#1a3a52] text-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">संपर्क करें / आवेदन करें</h2>
+          <div className="w-20 h-1 bg-white mx-auto"></div>
+          <p className="text-gray-200 mt-4 max-w-2xl mx-auto text-lg">अभी आवेदन करें या अधिक जानकारी के लिए हमसे संपर्क करें</p>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 space-y-6">
+              <h3 className="text-2xl font-bold mb-6">संपर्क विवरण</h3>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-white/20 rounded-lg p-3">
+                  <Phone className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-300 mb-1">कॉल करें</p>
+                  <a href="tel:9217804810" className="text-xl font-bold hover:text-gray-300 transition-colors">
+                    9217804810
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-white/20 rounded-lg p-3">
+                  <MessageCircle className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-300 mb-1">व्हाट्सएप</p>
+                  <a
+                    href="https://wa.me/919217804810"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl font-bold hover:text-gray-300 transition-colors"
+                  >
+                    9217804810
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-white/20 rounded-lg p-3">
+                  <MapPin className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-300 mb-1">ऑफिस का पता</p>
+                  <p className="text-lg font-semibold">कनॉट प्लेस, नई दिल्ली</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-white/20 rounded-lg p-3">
+                  <Mail className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-300 mb-1">कंपनी का नाम</p>
+                  <p className="text-lg font-semibold">V.S. Travel Company</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">अभी आवेदन करें</h3>
+              <p className="text-gray-200 mb-6 text-lg">
+                नीचे दिए गए बटन पर क्लिक करके अपना आवेदन फॉर्म भरें। हमारी टीम आपसे जल्द ही संपर्क करेगी।
+              </p>
+
+              <div className="space-y-4">
+                <Button
+                  onClick={handleApplyNow}
+                  size="lg"
+                  className="w-full bg-white text-[#0B1C2D] hover:bg-gray-100 font-bold text-lg"
+                >
+                  ऑनलाइन आवेदन फॉर्म भरें
+                </Button>
+
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-white/30"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-4 bg-white/10 text-gray-300">या</span>
+                  </div>
+                </div>
+
+                <Button
+                  onClick={handleWhatsApp}
+                  size="lg"
+                  variant="outline"
+                  className="w-full border-2 border-white text-white hover:bg-white hover:text-[#0B1C2D] font-bold text-lg bg-transparent"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  व्हाट्सएप पर संपर्क करें
+                </Button>
+
+                <Button
+                  onClick={handleCall}
+                  size="lg"
+                  variant="outline"
+                  className="w-full border-2 border-white text-white hover:bg-white hover:text-[#0B1C2D] font-bold text-lg bg-transparent"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  कॉल करें
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-green-500/20 border-2 border-green-400 rounded-lg p-6 text-center">
+            <p className="text-xl font-semibold mb-2">सीमित पद उपलब्ध हैं!</p>
+            <p className="text-lg text-gray-200">जल्दी आवेदन करें और अपना भविष्य सुरक्षित करें</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+import { Shield, FileCheck, AlertTriangle } from "lucide-react"
+
+export function Footer() {
+  return (
+    <footer className="bg-gray-900 text-gray-300 py-12">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">V.S. Travel Company</h3>
+              <p className="text-gray-400 leading-relaxed">
+                12 वर्षों से सरकारी अधिकारियों के परिवारों को विश्वसनीय ड्राइवर सेवा प्रदान कर रहे हैं।
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <Shield className="h-5 w-5" />
+                भरोसा और सुरक्षा
+              </h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>• 12 वर्षों का अनुभव</li>
+                <li>• पूर्ण दस्तावेज़ सत्यापन</li>
+                <li>• कानूनी चयन प्रक्रिया</li>
+                <li>• सुरक्षित और स्थायी नौकरी</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">संपर्क</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>फोन: 9217804810</li>
+                <li>व्हाट्सएप: 9217804810</li>
+                <li>ऑफिस: कनॉट प्लेस, नई दिल्ली</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-700 pt-8">
+            <div className="bg-yellow-900/30 border border-yellow-600 rounded-lg p-6 mb-6">
+              <div className="flex items-start gap-3 mb-4">
+                <AlertTriangle className="h-6 w-6 text-yellow-400 flex-shrink-0 mt-1" />
+                <h3 className="text-lg font-bold text-white">कानूनी और सुरक्षा डिस्क्लेमर</h3>
+              </div>
+              <div className="space-y-3 text-gray-300 text-sm">
+                <div className="flex items-start gap-2">
+                  <FileCheck className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <p>यह वेबसाइट केवल जानकारी एवं प्रारंभिक रजिस्ट्रेशन हेतु है।</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <FileCheck className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <p>₹600 शुल्क केवल रजिस्ट्रेशन एवं ड्राइविंग टेस्ट प्रक्रिया के लिए है और यह कॉल के बाद लिया जाता है।</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <FileCheck className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <p>कंपनी नौकरी की गारंटी का दावा नहीं करती।</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <FileCheck className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <p>चयन दस्तावेज़ सत्यापन एवं ड्राइविंग टेस्ट पर आधारित है।</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <FileCheck className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <p className="font-semibold text-yellow-300">
+                    भुगतान केवल कंपनी के नंबर 9217804810 से प्राप्त QR code पर ही करें। वेबसाइट पर कोई पेमेंट लिंक नहीं है।
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center text-gray-400 text-sm">
+              <p>&copy; 2025 V.S. Travel Company. सर्वाधिकार सुरक्षित।</p>
+              <p className="mt-2">कनॉट प्लेस, नई दिल्ली</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+"use client"
+
+import { MessageCircle } from "lucide-react"
+
+export function WhatsAppButton() {
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/919217804810", "_blank")
+  }
+
+  return (
+    <button
+      onClick={handleWhatsApp}
+      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all hover:scale-110 z-50 flex items-center gap-2 group"
+      aria-label="WhatsApp पर संपर्क करें"
+    >
+      <MessageCircle className="h-7 w-7" />
+      <span className="hidden group-hover:inline-block mr-2 font-semibold whitespace-nowrap">व्हाट्सएप</span>
+    </button>
+  )
+}
+{
+  "name": "my-v0-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
+    "@radix-ui/react-accordion": "1.2.2",
+    "@radix-ui/react-alert-dialog": "1.1.4",
+    "@radix-ui/react-aspect-ratio": "1.1.1",
+    "@radix-ui/react-avatar": "1.1.2",
+    "@radix-ui/react-checkbox": "1.1.3",
+    "@radix-ui/react-collapsible": "1.1.2",
+    "@radix-ui/react-context-menu": "2.2.4",
+    "@radix-ui/react-dialog": "1.1.4",
+    "@radix-ui/react-dropdown-menu": "2.1.4",
+    "@radix-ui/react-hover-card": "1.1.4",
+    "@radix-ui/react-label": "2.1.1",
+    "@radix-ui/react-menubar": "1.1.4",
+    "@radix-ui/react-navigation-menu": "1.2.3",
+    "@radix-ui/react-popover": "1.1.4",
+    "@radix-ui/react-progress": "1.1.1",
+    "@radix-ui/react-radio-group": "1.2.2",
+    "@radix-ui/react-scroll-area": "1.2.2",
+    "@radix-ui/react-select": "2.1.4",
+    "@radix-ui/react-separator": "1.1.1",
+    "@radix-ui/react-slider": "1.2.2",
+    "@radix-ui/react-slot": "1.1.1",
+    "@radix-ui/react-switch": "1.1.2",
+    "@radix-ui/react-tabs": "1.1.2",
+    "@radix-ui/react-toast": "1.2.4",
+    "@radix-ui/react-toggle": "1.1.1",
+    "@radix-ui/react-toggle-group": "1.1.1",
+    "@radix-ui/react-tooltip": "1.1.6",
+    "@vercel/analytics": "1.3.1",
+    "autoprefixer": "^10.4.20",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "1.0.4",
+    "date-fns": "4.1.0",
+    "embla-carousel-react": "8.5.1",
+    "input-otp": "1.4.1",
+    "lucide-react": "^0.454.0",
+    "next": "16.0.10",
+    "next-themes": "^0.4.6",
+    "react": "19.2.0",
+    "react-day-picker": "9.8.0",
+    "react-dom": "19.2.0",
+    "react-hook-form": "^7.60.0",
+    "react-resizable-panels": "^2.1.7",
+    "recharts": "2.15.4",
+    "sonner": "^1.7.4",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^1.1.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.9",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.1.9",
+    "tw-animate-css": "1.3.3",
+    "typescript": "^5"
+  }
+}
